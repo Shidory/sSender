@@ -38,6 +38,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.uic import loadUiType
+from PyQt5 import QtGui, QtCore
 import os
 import sys
 import time
@@ -65,11 +66,9 @@ class Main(QMainWindow, FROM_MAIN):
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.on_click)
+        QMainWindow.setFixedSize(self, 900, 900)
 
-    def on_click(self):
-        QMessageBox.information(self, "Omar Othman", "This code writed by Omar Othman")
-
+    def open_file(self):
 
 class Splash(QMainWindow, FROM_SPLASH):
     def __init__(self, parent=None):
@@ -104,4 +103,6 @@ if __name__ == '__main__':
         main()
     except Exception as why:
         print(why)
+
+#install pyinstaller
 
