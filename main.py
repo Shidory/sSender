@@ -67,8 +67,17 @@ class Main(QMainWindow, FROM_MAIN):
         super(Main, self).__init__(parent)
         self.setupUi(self)
         QMainWindow.setFixedSize(self, 900, 900)
+        self.btn_folder.clicked.connect(self.open_file)
 
     def open_file(self):
+        name = QtGui.QFileDialog.getOpenFileName(self, 'open file')
+        file = open(name, 'r')
+
+        self.editor()
+
+        with file:
+            text = file.read()
+            self.textEdit.setText(text)
 
 class Splash(QMainWindow, FROM_SPLASH):
     def __init__(self, parent=None):
