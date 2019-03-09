@@ -38,13 +38,12 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.uic import loadUiType
-from PyQt5 import QtGui, QtCore
 import os
 import sys
 import time
 
 
-class ThreadProgress(QThread):
+class Progress(QThread):
     mysignal = pyqtSignal(int)
 
     def __init__(self, parent=None):
@@ -70,7 +69,7 @@ class Main(QMainWindow, FROM_MAIN):
         self.btn_folder.clicked.connect(self.open_file)
 
     def open_file(self):
-        name = QtGui.QFileDialog.getOpenFileName(self, 'open file')
+        name = QFileDialog.getOpenFileName(self, 'open file')
         file = open(name, 'r')
 
         self.editor()
@@ -87,7 +86,7 @@ class Splash(QMainWindow, FROM_SPLASH):
         self.setupUi(self)
         pixmap = QPixmap("logo.png")
         self.splash_image.setPixmap(pixmap.scaled(350, 300))
-        progress = ThreadProgress(self)
+        progress = Progress(self)
         progress.mysignal.connect(self.progress)
         progress.start()
 
