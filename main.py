@@ -100,7 +100,7 @@ class Splash(QMainWindow, FROM_SPLASH):
 
         size_screen = QDesktopWidget().screenGeometry()#Get size screen
         size_window = self.geometry()#Get window size
-        self.move((size_screen.width() - size_window.height())/2,\
+        self.move((size_screen.width() - size_window.width())/2,\
         (size_screen.height() - size_window.height())/2)#Move splash window on center of screen
 
     @pyqtSlot(int)
