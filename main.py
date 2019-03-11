@@ -70,6 +70,7 @@ class Main(QMainWindow, FROM_MAIN):
         super(Main, self).__init__(parent)
         self.setupUi(self)
         QMainWindow.setFixedSize(self, 900, 900)
+        self.setWindowFlags(Qt.FramelessWindowHint)#Personalize main window
         self.btn_send.clicked.connect(self.open_dir)
 
         size_screen = QDesktopWidget().screenGeometry()#Get size screen
