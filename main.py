@@ -74,7 +74,7 @@ class Main(QMainWindow, FROM_MAIN):
 
         size_screen = QDesktopWidget().screenGeometry()#Get size screen
         size_window = self.geometry()#Get window size
-        self.move((size_screen.width() - size_window.height()) / 2,\
+        self.move((size_screen.width() - size_window.width()) / 2,\
         (size_screen.height() - size_window.height()) / 2)#Move main window on center of screen
         #self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
 
