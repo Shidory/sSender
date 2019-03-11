@@ -60,26 +60,29 @@ class Progress(QThread):
 FROM_SPLASH, _ = loadUiType(os.path.join(os.path.dirname(__file__), "splash.ui"))
 FROM_MAIN, _ = loadUiType(os.path.join(os.path.dirname(__file__), "main.ui"))
 
-
+#################################################################################
+#           Class Main                                                          #
+#################################################################################
 class Main(QMainWindow, FROM_MAIN):
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
         self.setupUi(self)
         QMainWindow.setFixedSize(self, 900, 900)
-        self.btn_folder.clicked.connect(self.open_file)
+        self.btn_send.clicked.connect(self.open_dir)
 
-    def open_file(self):
-        name = QFileDialog.getOpenFileName(self, 'open file')
-        file = open(name, 'r')
+        size_screen = QDesktopWidget().screenGeometry()#Get size screen
+       #self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
 
-        self.editor()
+    def open_dir(self):
+        name = QFileDialog.getOpenFileName(self, 'Choose file')
 
-        with file:
-            text = file.read()
-            self.textEdit.setText(text)
-
+#################################################################################
+#           Class Splash                                                        #
+#################################################################################
 class Splash(QMainWindow, FROM_SPLASH):
+
     def __init__(self, parent=None):
+
         super(Splash, self).__init__(parent)
         QMainWindow.__init__(self)
         QMainWindow.setFixedSize(self,580, 900)
