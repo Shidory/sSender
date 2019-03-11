@@ -68,8 +68,9 @@ class Main(QMainWindow, FROM_MAIN):
     def __init__(self, parent=None):
 
         super(Main, self).__init__(parent)
-        self.setupUi(self)
+        QMainWindow.__init__(self)
         QMainWindow.setFixedSize(self, 900, 900)
+        self.setupUi(self)
         self.setWindowFlags(Qt.FramelessWindowHint)#Personalize main window
         self.btn_send.clicked.connect(self.open_dir)
 
