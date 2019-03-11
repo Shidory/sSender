@@ -71,8 +71,9 @@ class Main(QMainWindow, FROM_MAIN):
         self.btn_send.clicked.connect(self.open_dir)
 
         size_screen = QDesktopWidget().screenGeometry()#Get size screen
-        size_window = self.geometry()#get window size
-
+        size_window = self.geometry()#Get window size
+        self.move((size_screen.width() - size_window.height()) / 2,\
+        (size_screen.height() - size_window.height()) / 2)#Move main window on center of screen
        #self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
 
     def open_dir(self):
