@@ -92,6 +92,7 @@ class Splash(QMainWindow, FROM_SPLASH):
         QMainWindow.__init__(self)
         QMainWindow.setFixedSize(self,580, 900)
         self.setupUi(self)
+        self.setWindowFlags(Qt.FramelessWindowHint)#personalize screen
         pixmap = QPixmap("logo.png")
         self.splash_image.setPixmap(pixmap.scaled(350, 300))
         progress = Progress(self)
