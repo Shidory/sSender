@@ -99,6 +99,7 @@ class Splash(QMainWindow, FROM_SPLASH):
         progress.start()
 
         size_screen = QDesktopWidget().screenGeometry()#Get size screen
+        size_window = self.geometry()#Get window size
 
     @pyqtSlot(int)
     def progress(self, i):
