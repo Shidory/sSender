@@ -64,7 +64,9 @@ FROM_MAIN, _ = loadUiType(os.path.join(os.path.dirname(__file__), "main.ui"))
 #           Class Main                                                          #
 #################################################################################
 class Main(QMainWindow, FROM_MAIN):
+
     def __init__(self, parent=None):
+
         super(Main, self).__init__(parent)
         self.setupUi(self)
         QMainWindow.setFixedSize(self, 900, 900)
@@ -74,7 +76,7 @@ class Main(QMainWindow, FROM_MAIN):
         size_window = self.geometry()#Get window size
         self.move((size_screen.width() - size_window.height()) / 2,\
         (size_screen.height() - size_window.height()) / 2)#Move main window on center of screen
-       #self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
+        #self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
 
     def open_dir(self):
         name = QFileDialog.getOpenFileName(self, 'Choose file')
@@ -95,6 +97,8 @@ class Splash(QMainWindow, FROM_SPLASH):
         progress = Progress(self)
         progress.mysignal.connect(self.progress)
         progress.start()
+
+        size_screen = QDesktopWidget().screenGeometry()#Get size screen
 
     @pyqtSlot(int)
     def progress(self, i):
