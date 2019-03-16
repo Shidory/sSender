@@ -7,8 +7,6 @@ from PyQt5.QtGui import QBrush, QColor, QPalette
 from PyQt5.QtWidgets import QApplication, qApp
 
 from qroundprogressbar import QRoundProgressBar
-
-
 app = QApplication(sys.argv)
 
 progress = QRoundProgressBar()
@@ -42,8 +40,11 @@ import os
 import sys
 import time
 
-
+#################################################################################
+#           Class Progress                                                      #
+#################################################################################
 class Progress(QThread):
+
     mysignal = pyqtSignal(int)
 
     def __init__(self, parent=None):
@@ -60,6 +61,7 @@ class Progress(QThread):
 FROM_SPLASH, _ = loadUiType(os.path.join(os.path.dirname(__file__), "splash.ui"))
 FROM_MAIN, _ = loadUiType(os.path.join(os.path.dirname(__file__), "main.ui"))
 
+
 #################################################################################
 #           Class Main                                                          #
 #################################################################################
@@ -68,43 +70,41 @@ class Main(QMainWindow, FROM_MAIN):
     def __init__(self, parent=None):
 
         super(Main, self).__init__(parent)
-        QMainWindow.__init__(self)
-        QMainWindow.setFixedSize(self, 900, 900)
         self.setupUi(self)
-        self.setWindowFlags(Qt.FramelessWindowHint)#Personalize main window
+        QMainWindow.setFixedSize(self, 900, 900)
+        #self.setWindowFlags(Qt.FramelessWindowHint)  # Personalize main window
         self.btn_send.clicked.connect(self.open_dir)
-
-        size_screen = QDesktopWidget().screenGeometry()#Get size screen
-        size_window = self.geometry()#Get window size
-        self.move((size_screen.width() - size_window.width()) / 2,\
-        (size_screen.height() - size_window.height()) / 2)#Move main window on center of screen
-        #self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
+        size_screen = QDesktopWidget().screenGeometry()  # Get size screen
+        size_window = self.geometry()  # Get window size
+        self.move((size_screen.width() - size_window.width()) / 2, \
+                  (size_screen.height() - size_window.height()) / 2)  # Move main window on center of screen
+        # self.lbl_logo.setText = "ejfkjeojgjkloiejgkkljoijekjoigj"
 
     def open_dir(self):
         name = QFileDialog.getOpenFileName(self, 'Choose file')
+
+
+    def on_click(self):
+        QMessageBox.information(self, "Omar Othman", "This code writed by Omar Othman")
+
 
 #################################################################################
 #           Class Splash                                                        #
 #################################################################################
 class Splash(QMainWindow, FROM_SPLASH):
-
     def __init__(self, parent=None):
-
         super(Splash, self).__init__(parent)
         QMainWindow.__init__(self)
-        QMainWindow.setFixedSize(self,580, 900)
         self.setupUi(self)
-        self.setWindowFlags(Qt.FramelessWindowHint)#personalize screen
+        self.setWindowFlags(Qt.FramelessWindowHint)  # personalize screen
         pixmap = QPixmap("logo.png")
-        self.splash_image.setPixmap(pixmap.scaled(350, 300))
         progress = Progress(self)
         progress.mysignal.connect(self.progress)
         progress.start()
-
-        size_screen = QDesktopWidget().screenGeometry()#Get size screen
-        size_window = self.geometry()#Get window size
-        self.move((size_screen.width() - size_window.width())/2,\
-        (size_screen.height() - size_window.height())/2)#Move splash window on center of screen
+        size_screen = QDesktopWidget().screenGeometry()  # Get size screen
+        size_window = self.geometry()  # Get window size
+        self.move((size_screen.width() - size_window.width()) / 2, \
+                  (size_screen.height() - size_window.height()) / 2)  # Move splash window on center of screen
 
     @pyqtSlot(int)
     def progress(self, i):
@@ -125,8 +125,7 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except Exception as why:
-        print(why)
+    except Exception as e:
+        print(e)
 
-#install pyinstaller
 

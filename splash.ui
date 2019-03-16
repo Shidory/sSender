@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>580</width>
-    <height>900</height>
+    <width>503</width>
+    <height>306</height>
    </rect>
   </property>
   <property name="palette">
@@ -438,8 +438,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>450</y>
+      <x>200</x>
+      <y>180</y>
       <width>147</width>
       <height>46</height>
      </rect>
@@ -450,9 +450,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>245</red>
-          <green>121</green>
-          <blue>0</blue>
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
          </color>
         </brush>
        </colorrole>
@@ -461,9 +461,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>245</red>
-          <green>121</green>
-          <blue>0</blue>
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
          </color>
         </brush>
        </colorrole>
@@ -496,11 +496,48 @@
    <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>862</y>
-      <width>561</width>
-      <height>16</height>
+      <x>0</x>
+      <y>300</y>
+      <width>501</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>206</red>
+          <green>92</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>206</red>
+          <green>92</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Highlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>145</red>
+          <green>141</green>
+          <blue>126</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="value">
      <number>24</number>
@@ -509,14 +546,20 @@
    <widget class="QLabel" name="splash_image">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>130</y>
-      <width>421</width>
-      <height>351</height>
+      <x>90</x>
+      <y>10</y>
+      <width>321</width>
+      <height>201</height>
      </rect>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>logo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
